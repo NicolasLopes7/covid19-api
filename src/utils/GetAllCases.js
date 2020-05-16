@@ -6,12 +6,12 @@ const { splitDataByState } = require('./SplitDataByState')
 module.exports = {
   async getAllCases() {
     let brasil = await api.get(
-      '/api/dataset/covid19/caso/data?place_type=state&is_last=True'
+      '/api/dataset/covid19/caso/data?place_type=state&is_last=False'
     )
 
     let dataBrazil = brasil.data.results
-    const dataStates = splitDataByState(dataBrazil, true)
-
+    const dataStates = splitDataByState(dataBrazil, false)
+    console.log(dataStates)
     let ConfirmedCasesBrazil = sumOfArray(
       dataBrazil.map((state) => state.confirmed)
     )
