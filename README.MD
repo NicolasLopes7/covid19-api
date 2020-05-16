@@ -2,7 +2,7 @@
 
 ## Endpoints
 ---
-##### This API has only 3 endpoints, but they are very useful, enjoy! : )
+###### This API has only 3 endpoints, but they are very useful, enjoy! : )
 ###### GET /lastStatesData
 ```json
 
