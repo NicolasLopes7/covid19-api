@@ -3,10 +3,11 @@ const { sumOfArray } = require('./SumOfArray')
 const { splitDataByState } = require('./SplitDataByState')
 module.exports = {
   async getLastCases() {
+    console.log('a')
     let stateReq = await api.get(
       '/api/dataset/covid19/caso/data?place_type=state&is_last=True'
     )
-    console.log(stateReq.data.results)
+
     let dataState = stateReq.data.results
 
     dataState.sort((a, b) => {
@@ -26,7 +27,6 @@ module.exports = {
     )
 
     dataState = splitDataByState(dataState, true)
-
     return { dataState, ConfirmedCasesByState, ConfirmedDeathsByState }
   },
 }

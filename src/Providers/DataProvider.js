@@ -4,19 +4,20 @@ const { GetAllCasesByState } = require('../utils/GetAllCasesByState')
 module.exports = {
   async getLastStateData(req, res) {
     const cases = await getLastCases()
+    console.log(cases)
     return res.json({
-      ConfirmedCasesBrazil: cases.ConfirmedCasesBrazil,
-      ConfirmedDeathsBrazil: cases.ConfirmedDeathsBrazil,
-      states: cases.dataStates,
+      ConfirmedCasesBrazil: cases.ConfirmedCasesByState,
+      ConfirmedDeathsBrazil: cases.ConfirmedDeathsByState,
+      states: cases.dataState,
     })
   },
 
   async getAllStateData(req, res) {
     const cases = await getAllCases()
     return res.json({
-      // ConfirmedCasesBrazil: cases.ConfirmedCasesByState,
-      // ConfirmedDeathsBrazil: cases.ConfirmedDeathsByState,
-      dataStates: cases.dataState,
+      ConfirmedCasesBrazil: cases.ConfirmedCasesBrazil,
+      ConfirmedDeathsBrazil: cases.ConfirmedDeathsBrazil,
+      dataStates: cases.dataStates,
     })
   },
 
