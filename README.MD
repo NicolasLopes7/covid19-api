@@ -1,5 +1,5 @@
 # *COVID-19* BRAZILIAN API BY STATE
-##https://nicolaslopes7-covid-19-brazil.herokuapp.com/
+https://nicolaslopes7-covid-19-brazil.herokuapp.com/
 ### Endpoints
 ---
 ###### This API has only 3 endpoints, but they are very useful, enjoy! : )
