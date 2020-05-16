@@ -1,4 +1,4 @@
-const api = require('../api')
+const api = require('../../services/api')
 
 const { sumOfArray } = require('./SumOfArray')
 const { splitDataByState } = require('./SplitDataByState')

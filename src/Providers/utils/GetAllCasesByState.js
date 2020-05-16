@@ -1,13 +1,24 @@
-const api = require('../api')
+const api = require('../../services/api')
 const { sumOfArray } = require('./SumOfArray')
-const { splitDataByState } = require('./SplitDataByState')
 module.exports = {
-  async getLastCases() {
+  async GetAllCasesByState(state) {
     let stateReq = await api.get(
-      '/api/dataset/covid19/caso/data?place_type=state&is_last=True'
+      `/api/dataset/covid19/caso/data/?format=json&is_last=True&state=${state}`
     )
 
-    let dataState = stateReq.data.results
+    let dataState = stateReq.data.results.filter(
+      (instant) => instant.city != null
+    )
+
+    dataState.forEach((city, index) => {
+      dataState[index] = {
+        city: city.city,
+        confirmed: city.confirmed,
+        deaths: city.deaths,
+        death_rate: city.death_rate,
+        confirmed_per_100k_inhabitants: city.confirmed_per_100k_inhabitants,
+      }
+    })
 
     dataState.sort((a, b) => {
       if (a.deaths > b.deaths) {
@@ -24,8 +35,6 @@ module.exports = {
     let ConfirmedDeathsByState = sumOfArray(
       dataState.map((city) => city.deaths)
     )
-
-    dataState = splitDataByState(dataState, true)
     return { dataState, ConfirmedCasesByState, ConfirmedDeathsByState }
   },
 }
