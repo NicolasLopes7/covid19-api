@@ -8,5 +8,5 @@ app.use(cors())
 app.use(express.json())
 app.use(routes)
 
-const PORT = process.env.PORT || 5003
+const PORT = process.env.PORT || 5000
 app.listen(PORT)

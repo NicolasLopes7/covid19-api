@@ -4,7 +4,6 @@ const { GetAllCasesByState } = require('../utils/GetAllCasesByState')
 module.exports = {
   async getLastStateData(req, res) {
     const cases = await getLastCases()
-    console.log(cases)
     return res.json({
       ConfirmedCasesBrazil: cases.ConfirmedCasesByState,
       ConfirmedDeathsBrazil: cases.ConfirmedDeathsByState,

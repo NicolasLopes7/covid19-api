@@ -35,7 +35,6 @@ module.exports = {
     let ConfirmedDeathsByState = sumOfArray(
       dataState.map((city) => city.deaths)
     )
-    console.log(dataState)
     return { dataState, ConfirmedCasesByState, ConfirmedDeathsByState }
   },
 }

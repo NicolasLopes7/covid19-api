@@ -11,7 +11,6 @@ module.exports = {
 
     let dataBrazil = brasil.data.results
     const dataStates = splitDataByState(dataBrazil, false)
-    console.log(dataStates)
     let ConfirmedCasesBrazil = sumOfArray(
       dataBrazil.map((state) => state.confirmed)
     )

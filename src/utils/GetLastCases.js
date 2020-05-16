@@ -3,7 +3,6 @@ const { sumOfArray } = require('./SumOfArray')
 const { splitDataByState } = require('./SplitDataByState')
 module.exports = {
   async getLastCases() {
-    console.log('a')
     let stateReq = await api.get(
       '/api/dataset/covid19/caso/data?place_type=state&is_last=True'
     )
